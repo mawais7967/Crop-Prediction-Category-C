@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crop Prediction</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #e8f5e9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+
+        h2 {
+            color: #2e7d32;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #66bb6a;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #2e7d32;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #43a047;
+        }
+
+        h3 {
+            margin-top: 20px;
+            color: #00695c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🌱 Crop Prediction Form</h2>
+        <form action="/predict" method="post">
+            <input type="text" name="N" placeholder="Nitrogen (N)" required>
+            <input type="text" name="P" placeholder="Phosphorous (P)" required>
+            <input type="text" name="K" placeholder="Potassium (K)" required>
+            <input type="text" name="temperature" placeholder="Temperature (°C)" required>
+            <input type="text" name="humidity" placeholder="Humidity (%)" required>
+            <input type="text" name="ph" placeholder="pH level" required>
+            <input type="text" name="rainfall" placeholder="Rainfall (mm)" required>
+            <input type="submit" value="Predict Crop">
+        </form>
+        <h3>{{ prediction_text }}</h3>
+    </div>
+</body>
+</html>
